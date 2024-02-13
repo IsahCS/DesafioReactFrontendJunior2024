@@ -1,0 +1,46 @@
+.footer {
+    border-top: 1px solid #e6e6e6;
+    font-size: 15px;
+    height: 20px;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.filters {
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+}
+
+.clear-completed, html .clear-completed:active {
+    cursor: pointer;
+    float: right;
+    line-height: 19px;
+    position: relative;
+    text-decoration: none;
+}
+
+.todo-count {
+    float: left;
+    text-align: left;
+}
+
+.filters li {
+    display: inline;
+}
+
+.filters li a.selected {
+    border-color: #ce4646;
+}
+
+.filters li a {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+}
