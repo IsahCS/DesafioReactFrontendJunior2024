@@ -1,12 +1,12 @@
 import React from "react";
 import "./index.css";
-import { TodoItem } from "../../../app";
+import { TodoItem } from "../types";
 
-interface TodoListProps {
+type TodoListProps = {
   items: TodoItem[];
   onToggleCompletion: (id: number) => void;
   onDeleteItem: (id: number) => void;
-}
+};
 
 export const TodoList: React.FC<TodoListProps> = ({
   items,
@@ -16,8 +16,6 @@ export const TodoList: React.FC<TodoListProps> = ({
   if (items.length === 0) {
     return null;
   }
-
-  console.log("items", items);
 
   return (
     <main className="main" data-testid="main">
