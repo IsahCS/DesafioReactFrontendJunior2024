@@ -13,6 +13,8 @@ export const todoReducer = (state: TodoItem[], action: Action) => {
       );
     case "REMOVE_TODO":
       return state.filter((todo) => todo.id !== action.id);
+    case "SET_INITIAL_STATE":
+      return action.initialState;
     default:
       return state;
   }

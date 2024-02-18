@@ -1,12 +1,29 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { TodoItem } from "../components/instances/Todo/types";
 import { todoReducer } from "../components/instances/Todo/reducer";
-
-const initialState: TodoItem[] = [];
+import { useQuery } from "react-query";
+import { API_URL } from "../config";
+import { ITodoApiResponse } from "./interface";
 
 export const useTodos = () => {
-  const [todos, dispatch] = useReducer(todoReducer, initialState);
+  const { data } = useQuery("repoData", () =>
+    fetch(`${API_URL}/todos`).then((res) => res.json())
+  );
+
+  const [todos, dispatch] = useReducer(todoReducer, []);
   const [currentFilter, setCurrentFilter] = useState("ALL");
+
+  useEffect(() => {
+    if (data) {
+      const initialState: TodoItem[] =
+        data?.map((item: ITodoApiResponse) => ({
+          completed: item.isDone,
+          description: item.title,
+          id: item.id,
+        })) || [];
+      dispatch({ type: "SET_INITIAL_STATE", initialState });
+    }
+  }, [data]);
 
   const handleAddItem = (description: string) => {
     dispatch({ type: "ADD_TODO", description });
