@@ -1,6 +1,7 @@
 import { TodoItem } from "../../../instances/Todo/types";
 import React, { useState } from "react";
 import "./index.css";
+import { FilterButton } from "./FilterButton";
 
 interface FooterProps {
   todos: TodoItem[];
@@ -25,42 +26,24 @@ export const Footer: React.FC<FooterProps> = ({
       <footer className="footer" data-testid="footer">
         <span className="todo-count">{itemCount} item left!</span>
         <ul className="filters" data-testid="footer-navigation">
-          <li>
-            <a
-              className={selectedFilter === "ALL" ? "selected" : ""}
-              href="#/"
-              onClick={() => {
-                setCurrentFilter("ALL");
-                setSelectedFilter("ALL");
-              }}
-            >
-              All
-            </a>
-          </li>
-          <li>
-            <a
-              className={selectedFilter === "ACTIVE" ? "selected" : ""}
-              href="#/active"
-              onClick={() => {
-                setCurrentFilter("ACTIVE");
-                setSelectedFilter("ACTIVE");
-              }}
-            >
-              Active
-            </a>
-          </li>
-          <li>
-            <a
-              className={selectedFilter === "COMPLETED" ? "selected" : ""}
-              href="#/completed"
-              onClick={() => {
-                setCurrentFilter("COMPLETED");
-                setSelectedFilter("COMPLETED");
-              }}
-            >
-              Completed
-            </a>
-          </li>
+          <FilterButton
+            selectedFilter={selectedFilter}
+            filterValue="ALL"
+            setCurrentFilter={setCurrentFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
+          <FilterButton
+            selectedFilter={selectedFilter}
+            filterValue="ACTIVE"
+            setCurrentFilter={setCurrentFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
+          <FilterButton
+            selectedFilter={selectedFilter}
+            filterValue="COMPLETED"
+            setCurrentFilter={setCurrentFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
         </ul>
         <button
           className="clear-completed"
