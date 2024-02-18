@@ -34,6 +34,7 @@ export const Header = ({
           value={inputValue}
           onChange={handleInputChange}
           onKeyPress={handleInputKeyPress}
+          autoFocus
         />
         <label className="visually-hidden" htmlFor="todo-input">
           New Todo Input

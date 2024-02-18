@@ -2,6 +2,7 @@ import { Todos } from "./components/Todos";
 import { TodoItem } from "./components/Todos/types";
 import { todoTransformer } from "./components/Todos/reducer";
 import { useTodos } from "./hooks/useTodos";
+import Footer from "./components/Footer";
 
 const initialState: TodoItem[] = [];
 
@@ -33,6 +34,7 @@ export const App = () => {
           onClearCompleted={handleClearCompleted}
         />
       </Todos.Root>
+      <Footer />
     </>
   );
 };
