@@ -1,4 +1,5 @@
 import { TodoItem } from "../types";
+import React, { useState } from "react";
 import "./index.css";
 
 interface FooterProps {
@@ -12,6 +13,7 @@ export const Footer: React.FC<FooterProps> = ({
   setCurrentFilter,
   onClearCompleted,
 }) => {
+  const [selectedFilter, setSelectedFilter] = useState("ALL");
   const itemCount = todos.filter((item) => !item.completed).length;
 
   if (todos.length === 0) {
@@ -25,20 +27,37 @@ export const Footer: React.FC<FooterProps> = ({
         <ul className="filters" data-testid="footer-navigation">
           <li>
             <a
-              className="selected"
+              className={selectedFilter === "ALL" ? "selected" : ""}
               href="#/"
-              onClick={() => setCurrentFilter("ALL")}
+              onClick={() => {
+                setCurrentFilter("ALL");
+                setSelectedFilter("ALL");
+              }}
             >
               All
             </a>
           </li>
           <li>
-            <a href="#/active" onClick={() => setCurrentFilter("ACTIVE")}>
+            <a
+              className={selectedFilter === "ACTIVE" ? "selected" : ""}
+              href="#/active"
+              onClick={() => {
+                setCurrentFilter("ACTIVE");
+                setSelectedFilter("ACTIVE");
+              }}
+            >
               Active
             </a>
           </li>
           <li>
-            <a href="#/completed" onClick={() => setCurrentFilter("COMPLETED")}>
+            <a
+              className={selectedFilter === "COMPLETED" ? "selected" : ""}
+              href="#/completed"
+              onClick={() => {
+                setCurrentFilter("COMPLETED");
+                setSelectedFilter("COMPLETED");
+              }}
+            >
               Completed
             </a>
           </li>
