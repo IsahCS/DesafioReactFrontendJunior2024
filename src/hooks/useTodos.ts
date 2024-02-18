@@ -16,7 +16,7 @@ export const useTodos = () => {
     dispatch({ type: "TOGGLE_TODO", id });
   };
 
-  const handleToggleAllCompletion = (id: number) => {
+  const handleToggleAllCompletion = () => {
     todos.forEach((todo) => dispatch({ type: "TOGGLE_TODO", id: todo.id }));
   };
 

@@ -1,4 +1,4 @@
-import { TodoItem } from "../../../app";
+import { TodoItem } from "../types";
 import "./index.css";
 
 interface FooterProps {
