@@ -12,7 +12,9 @@ export const App = () => {
     setCurrentFilter,
     handleAddItem,
     handleToggleCompletion,
+    handleToggleAllCompletion,
     handleDeleteItem,
+    handleClearCompleted,
   } = useTodos();
 
   return (
@@ -23,8 +25,13 @@ export const App = () => {
           items={todoTransformer[currentFilter]?.(todos) || initialState}
           onToggleCompletion={handleToggleCompletion}
           onDeleteItem={handleDeleteItem}
+          onToggleAllCompletion={handleToggleAllCompletion}
         />
-        <Todos.Footer setCurrentFilter={setCurrentFilter} todos={todos} />
+        <Todos.Footer
+          setCurrentFilter={setCurrentFilter}
+          todos={todos}
+          onClearCompleted={handleClearCompleted}
+        />
       </Todos.Root>
     </>
   );

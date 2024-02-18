@@ -6,12 +6,14 @@ type TodoListProps = {
   items: TodoItem[];
   onToggleCompletion: (id: number) => void;
   onDeleteItem: (id: number) => void;
+  onToggleAllCompletion: () => void;
 };
 
 export const TodoList: React.FC<TodoListProps> = ({
   items,
   onToggleCompletion,
   onDeleteItem,
+  onToggleAllCompletion,
 }) => {
   if (items.length === 0) {
     return null;
@@ -19,6 +21,17 @@ export const TodoList: React.FC<TodoListProps> = ({
 
   return (
     <main className="main" data-testid="main">
+      <div className="toggle-all-container">
+        <input
+          className="toggle-all"
+          type="checkbox"
+          data-testid="toggle-all"
+          onClick={() => onToggleAllCompletion()}
+        />
+        <label className="toggle-all-label" htmlFor="toggle-all">
+          Toggle All Input
+        </label>
+      </div>
       <ul className="todo-list" data-testid="todo-list">
         {items.map((item) => (
           <li

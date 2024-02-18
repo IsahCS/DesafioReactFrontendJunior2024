@@ -1,3 +1,9 @@
+.main {
+  border-top: 1px solid #e6e6e6;
+  position: relative;
+  z-index: 2;
+}
+
 .toggle-all {
     border: none;
     bottom: 100%;
@@ -10,6 +16,18 @@
 
 .toggle-all-label {
     pointer-events: none;
+}
+
+.toggle-all+label {
+  align-items: center;
+  display: flex;
+  font-size: 0;
+  height: 65px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: -65px;
+  width: 45px;
 }
 
 .toggle-all+label:before {
@@ -26,6 +44,22 @@
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+
+.toggle-all {
+  height: 60px !important;
+  right: auto !important;
+  width: 40px !important;
 }
 
 .todo-list li {

@@ -16,8 +16,18 @@ export const useTodos = () => {
     dispatch({ type: "TOGGLE_TODO", id });
   };
 
+  const handleToggleAllCompletion = (id: number) => {
+    todos.forEach((todo) => dispatch({ type: "TOGGLE_TODO", id: todo.id }));
+  };
+
   const handleDeleteItem = (id: number) => {
     dispatch({ type: "REMOVE_TODO", id });
+  };
+
+  const handleClearCompleted = () => {
+    todos
+      .filter((todo) => todo.completed)
+      .forEach((todo) => dispatch({ type: "REMOVE_TODO", id: todo.id }));
   };
 
   return {
@@ -26,6 +36,8 @@ export const useTodos = () => {
     setCurrentFilter,
     handleAddItem,
     handleToggleCompletion,
+    handleToggleAllCompletion,
     handleDeleteItem,
+    handleClearCompleted,
   };
 };

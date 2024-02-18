@@ -4,9 +4,14 @@ import "./index.css";
 interface FooterProps {
   todos: TodoItem[];
   setCurrentFilter: (filter: string) => void;
+  onClearCompleted: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ todos, setCurrentFilter }) => {
+export const Footer: React.FC<FooterProps> = ({
+  todos,
+  setCurrentFilter,
+  onClearCompleted,
+}) => {
   const itemCount = todos.filter((item) => !item.completed).length;
 
   if (todos.length === 0) {
@@ -38,7 +43,11 @@ export const Footer: React.FC<FooterProps> = ({ todos, setCurrentFilter }) => {
             </a>
           </li>
         </ul>
-        <button className="clear-completed" disabled>
+        <button
+          className="clear-completed"
+          onClick={() => onClearCompleted()}
+          disabled={todos.filter((todo) => todo.completed).length === 0}
+        >
           Clear completed
         </button>
       </footer>
