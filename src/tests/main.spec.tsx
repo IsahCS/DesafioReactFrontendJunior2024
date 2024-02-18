@@ -101,7 +101,7 @@ describe("Todos", () => {
     expect(queryAllByText("Walk the dog").length).toBe(0);
 
     const buttonFilterAll =
-      getByTestId("footer-navigation").querySelector('[href="#/"]');
+      getByTestId("footer-navigation").querySelector('[href="#/all"]');
     userEvent.click(buttonFilterAll as Element);
     expect(getByText("Buy groceries")).toBeInTheDocument();
     expect(getByText("Wash the car")).toBeInTheDocument();
