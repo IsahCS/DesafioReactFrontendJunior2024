@@ -1,39 +1,10 @@
-import { Todos } from "./components/Todos";
-import { TodoItem } from "./components/Todos/types";
-import { todoTransformer } from "./components/Todos/reducer";
-import { useTodos } from "./hooks/useTodos";
-import Footer from "./components/Footer";
-
-const initialState: TodoItem[] = [];
+import Footer from "./components/shared/Footer";
+import { Todo } from "./components/instances/Todo";
 
 export const App = () => {
-  const {
-    todos,
-    currentFilter,
-    setCurrentFilter,
-    handleAddItem,
-    handleToggleCompletion,
-    handleToggleAllCompletion,
-    handleDeleteItem,
-    handleClearCompleted,
-  } = useTodos();
-
   return (
     <>
-      <Todos.Root>
-        <Todos.Header onAddItem={handleAddItem} />
-        <Todos.TodoList
-          items={todoTransformer[currentFilter]?.(todos) || initialState}
-          onToggleCompletion={handleToggleCompletion}
-          onDeleteItem={handleDeleteItem}
-          onToggleAllCompletion={handleToggleAllCompletion}
-        />
-        <Todos.Footer
-          setCurrentFilter={setCurrentFilter}
-          todos={todos}
-          onClearCompleted={handleClearCompleted}
-        />
-      </Todos.Root>
+      <Todo />
       <Footer />
     </>
   );

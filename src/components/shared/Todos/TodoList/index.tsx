@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import { TodoItem } from "../types";
+import { TodoItem } from "../../../instances/Todo/types";
 
 type TodoListProps = {
   items: TodoItem[];

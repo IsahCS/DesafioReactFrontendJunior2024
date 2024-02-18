@@ -95,7 +95,7 @@ input[type="checkbox" i] {
 }
 
 .todo-list li .toggle+label {
-  background-image: url("../../../assets/unCheckedTodo.svg");    
+  background-image: url("../../../../assets/unCheckedTodo.svg");    
   background-position: 0;
   background-repeat: no-repeat;
 }
@@ -157,7 +157,7 @@ button {
 }
 
 .todo-list li.completed .toggle+label {
-    background-image: url("../../../assets/checkedTodo.svg");
+    background-image: url("../../../../assets/checkedTodo.svg");
 }
 
 .todo-list li.completed label {

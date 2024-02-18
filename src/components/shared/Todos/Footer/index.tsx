@@ -1,4 +1,4 @@
-import { TodoItem } from "../types";
+import { TodoItem } from "../../../instances/Todo/types";
 import React, { useState } from "react";
 import "./index.css";
 

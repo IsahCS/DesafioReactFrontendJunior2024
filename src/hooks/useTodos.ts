@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
-import { todoReducer } from "../components/Todos/reducer";
-import { TodoItem } from "../components/Todos/types";
+import { TodoItem } from "../components/instances/Todo/types";
+import { todoReducer } from "../components/instances/Todo/reducer";
 
 const initialState: TodoItem[] = [];
 
