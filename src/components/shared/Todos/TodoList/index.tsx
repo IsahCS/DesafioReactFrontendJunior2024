@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.css";
-import { TodoItem } from "../../../instances/Todo/types";
+import { TodoItem as TodoItemType } from "../../../../utils/type";
+import { TodoItem } from "./TodoItem";
 
 type TodoListProps = {
-  items: TodoItem[];
+  items: TodoItemType[];
   onToggleCompletion: (id: number) => void;
   onDeleteItem: (id: number) => void;
   onToggleAllCompletion: () => void;
@@ -39,20 +40,11 @@ export const TodoList: React.FC<TodoListProps> = ({
             className={item.completed ? "completed" : ""}
             data-testid="todo-item"
           >
-            <div className="view">
-              <input
-                className="toggle"
-                type="checkbox"
-                data-testid="todo-item-toggle"
-                onClick={() => onToggleCompletion(item.id)}
-              ></input>
-              <label data-testid="todo-item-label">{item.description}</label>
-              <button
-                className="destroy destroy-button"
-                data-testid="todo-item-button"
-                onClick={() => onDeleteItem(item.id)}
-              ></button>
-            </div>
+            <TodoItem
+              item={item}
+              onToggleCompletion={onToggleCompletion}
+              onDeleteItem={onDeleteItem}
+            />
           </li>
         ))}
       </ul>
