@@ -64,6 +64,7 @@ export const Footer: React.FC<FooterProps> = ({
         </ul>
         <button
           className="clear-completed"
+          data-testid="clear-completed"
           onClick={() => onClearCompleted()}
           disabled={todos.filter((todo) => todo.completed).length === 0}
         >
