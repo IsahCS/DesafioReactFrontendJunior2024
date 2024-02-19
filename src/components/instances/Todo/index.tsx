@@ -12,6 +12,7 @@ export const Todo = () => {
     handleToggleAllCompletion,
     handleDeleteItem,
     handleClearCompleted,
+    handleEditItem,
   } = useTodos();
 
   return (
@@ -23,6 +24,7 @@ export const Todo = () => {
           onToggleCompletion={handleToggleCompletion}
           onDeleteItem={handleDeleteItem}
           onToggleAllCompletion={handleToggleAllCompletion}
+          onEditItem={handleEditItem}
         />
         <Todos.Footer
           setCurrentFilter={setCurrentFilter}

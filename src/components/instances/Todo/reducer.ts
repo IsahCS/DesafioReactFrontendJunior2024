@@ -15,6 +15,12 @@ export const todoReducer = (state: TodoItem[], action: Action) => {
       return state.filter((todo) => todo.id !== action.id);
     case "SET_INITIAL_STATE":
       return action.initialState;
+    case "EDIT_TODO":
+      return state.map((todo) =>
+        todo.id === action.id
+          ? { ...todo, description: action.description }
+          : todo
+      );
     default:
       return state;
   }

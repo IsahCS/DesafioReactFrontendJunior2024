@@ -47,6 +47,10 @@ export const useTodos = () => {
       .forEach((todo) => dispatch({ type: "REMOVE_TODO", id: todo.id }));
   };
 
+  const handleEditItem = (id: number, description: string) => {
+    dispatch({ type: "EDIT_TODO", id, description });
+  };
+
   return {
     todos,
     currentFilter,
@@ -56,5 +60,6 @@ export const useTodos = () => {
     handleToggleAllCompletion,
     handleDeleteItem,
     handleClearCompleted,
+    handleEditItem,
   };
 };

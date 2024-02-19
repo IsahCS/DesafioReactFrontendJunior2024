@@ -8,6 +8,7 @@ type TodoListProps = {
   onToggleCompletion: (id: number) => void;
   onDeleteItem: (id: number) => void;
   onToggleAllCompletion: () => void;
+  onEditItem: (id: number, description: string) => void;
 };
 
 export const TodoList: React.FC<TodoListProps> = ({
@@ -15,6 +16,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   onToggleCompletion,
   onDeleteItem,
   onToggleAllCompletion,
+  onEditItem,
 }) => {
   if (items.length === 0) {
     return null;
@@ -44,6 +46,7 @@ export const TodoList: React.FC<TodoListProps> = ({
               item={item}
               onToggleCompletion={onToggleCompletion}
               onDeleteItem={onDeleteItem}
+              onEditItem={onEditItem}
             />
           </li>
         ))}
