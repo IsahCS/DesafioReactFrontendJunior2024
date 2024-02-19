@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface FilterButtonProps {
   selectedFilter: string;
@@ -15,9 +16,9 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
 }) => {
   return (
     <li>
-      <a
+      <Link
         className={selectedFilter === filterValue ? "selected" : ""}
-        href={`#/${filterValue.toLowerCase()}`}
+        to={`#/${filterValue.toLowerCase()}`}
         onClick={() => {
           setCurrentFilter(filterValue);
           setSelectedFilter(filterValue);
@@ -25,7 +26,7 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
       >
         {filterValue.charAt(0).toUpperCase() +
           filterValue.slice(1).toLowerCase()}
-      </a>
+      </Link>
     </li>
   );
 };
