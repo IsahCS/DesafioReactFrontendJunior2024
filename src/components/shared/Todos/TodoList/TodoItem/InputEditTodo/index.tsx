@@ -25,6 +25,7 @@ export const InputEditTodo: React.FC<InputEditTodoProps> = ({
       onChange={handleInputChange}
       onKeyPress={handleInputKeyPress}
       onBlur={() => setIsEditionMode(false)}
+      data-testid="todo-item-edit"
     />
   );
 };

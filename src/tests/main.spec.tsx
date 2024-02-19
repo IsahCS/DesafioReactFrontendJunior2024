@@ -138,4 +138,24 @@ describe("Todos", () => {
     userEvent.click(buttonToggleAll as Element);
     expect(getByText("3 item left!")).toBeInTheDocument();
   });
+
+  it("edit an item", () => {
+    const { getByText, getByPlaceholderText, queryAllByTestId } = render(
+      <App />
+    );
+
+    const inputElement = getByPlaceholderText("What needs to be done?");
+    userEvent.type(inputElement, "Buy groceries{enter}");
+    expect(getByText("Buy groceries")).toBeInTheDocument();
+
+    const buttonEdit = getByText("Buy groceries")
+      ?.closest("li")
+      ?.querySelector("label");
+    userEvent.dblClick(buttonEdit as Element);
+
+    const inputEdit = queryAllByTestId("todo-item-edit")[0];
+    userEvent.clear(inputEdit);
+    userEvent.type(inputEdit, "Buy milk{enter}");
+    expect(getByText("Buy milk")).toBeInTheDocument();
+  });
 });
